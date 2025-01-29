@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Question</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f2f2f2;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Special Question for You!</h1>
+    <form id="quizForm">
+        <p>Do you like surprises?</p>
+        <input type="radio" name="q1" value="yes" required> Yes
+        <input type="radio" name="q1" value="no" required> No
+        <br><br>
+
+        <p>Will you always support me?</p>
+        <input type="radio" name="q2" value="yes" required> Yes
+        <input type="radio" name="q2" value="no" required> No
+        <br><br>
+
+        <p>Do you love me?</p>
+        <input type="radio" name="q3" value="yes" required> Yes
+        <input type="radio" name="q3" value="no" required> No
+        <br><br>
+
+        <button type="button" onclick="checkAnswers()">Submit</button>
+    </form>
+</div>
+
+<script>
+    function checkAnswers() {
+        const form = document.getElementById('quizForm');
+        const q1 = form.q1.value;
+        const q2 = form.q2.value;
+        const q3 = form.q3.value;
+
+        // Modify the message based on answers
+        let message = "Thank you for answering the questions!";
+        
+        if (q1 === "yes" && q2 === "yes" && q3 === "yes") {
+            message = "I knew it! You’re amazing and I love you so much!";
+        } else if (q1 === "yes" || q2 === "yes" || q3 === "yes") {
+            message = "You’re special to me, and I hope you know that!";
+        } else {
+            message = "I’ll keep surprising you! Love you more than ever!";
+        }
+
+        // Redirect to a page with the message
+        window.location.href = `message.html?message=${encodeURIComponent(message)}`;
+    }
+</script>
+
+</body>
+</html>
